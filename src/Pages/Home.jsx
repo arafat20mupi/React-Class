@@ -7,12 +7,6 @@ const Home = () => {
         <div>
             <HomeComponents/>
             <Banner/>
-
-            <h1>
-                fdshfkldshfdsafh
-                <br />
-                fdjshufs
-            </h1>
         </div>
     );
 };
