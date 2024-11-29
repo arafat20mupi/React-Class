@@ -1,11 +1,21 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/authProvider";
 
 
 const About = () => {
+    const { user } = useContext(AuthContext)
+    console.log(user);
     return (
         <div>
             <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel bibendum sapien. Nulla facilisi. Sed vel mauris sit amet arcu convallis tempus. Vestibulum vel ex vel ligula fringilla mattis. Sed vel lectus sed dui bibendum pulvinar.</p>
-            <p>Nulla facilisi. Sed vel mauris sit amet arcu convallis tempus. Vestibulum vel ex vel ligula fringilla mattis. Sed vel lectus sed dui bibendum pulvinar.</p >
+            <p>This is the about page. Welcome, <span className="text-blue-500 font-bold text-xl"> {
+                 user?.email
+                }  </span>
+            </p>
+            <p>This is the about page. This is my Id, <span className="text-blue-500 font-bold text-xl"> {
+                 user?.uid
+                }  </span>
+            </p>
         </div>
     );
 };

@@ -1,22 +1,24 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/authProvider";
 
 const SignUp = () => {
-    const [data, setData] = useState();
-
+const {createUser} = useContext(AuthContext)
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
-        const phone = e.target.phone.value;
         const password = e.target.password.value;
 
-        setData({ name, email, phone, password });
+    const data = { name, email,password };
+    console.log(data);
+    createUser(email , password)
+
+
     };
 
-
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4  h-screen">
-            <form className="w-full col-span-1 md:col-span-2 items-center justify-center flex flex-col pt-3 min-h-60 bg-pink-100 shadow-lg px-3 space-y-2"
+        <div className="flex justify-center items-center  h-screen">
+            <form className="w-full max-w-xl py-6 items-center justify-center flex flex-col pt-3 min-h-60 bg-pink-100 shadow-lg px-3 space-y-2"
                 onSubmit={handleSubmit}
             >
                 <h1 className="text-3xl">Sign Up From</h1>
@@ -32,12 +34,7 @@ const SignUp = () => {
                     className="w-full px-3 py-3 rounded-md bg-zinc-100 border text-black"
                     placeholder="Type Your Email"
                 />
-                <input
-                    name="phone"
-                    type="number"
-                    className="w-full px-3 py-3 rounded-md bg-zinc-100 border text-black"
-                    placeholder="Type Your Phone Number"
-                />
+               
                 <input
                     name="password"
                     type="password"
@@ -51,67 +48,6 @@ const SignUp = () => {
                     Sign Up
                 </button>
             </form>
-
-            <div>
-                <div className="text-xl w-full  flex flex-col items-center justify-center font-bold text-center bg-red-500 text-white space-y-3  py-4">
-                    <h1 className="text-3xl">From Data is hare</h1>
-                    {
-                        data &&
-                        <div>
-                            <h2>Sign Up Details:</h2>
-                            <p>Name: {data.name}</p>
-                            <p>Email: {data.email}</p>
-                            <p>Phone: {data.phone}</p>
-                            <p>Password: {data.password}</p>
-                        </div>
-                    }
-
-                </div>
-                <div className="text-xl w-full  flex flex-col items-center justify-center font-bold text-center bg-blue-500 text-white space-y-3  py-4">
-                    <h1 className="text-3xl">From Data is hare</h1>
-                    {
-                        data &&
-                        <div>
-                            <h2>Sign Up Details:</h2>
-                            <p>Name: {data.name}</p>
-                            <p>Email: {data.email}</p>
-                            <p>Phone: {data.phone}</p>
-                            <p>Password: {data.password}</p>
-                        </div>
-                    }
-
-                </div>
-            </div>
-            <div className="">
-                <div className="text-xl w-full flex flex-col items-center justify-center font-bold text-center bg-lime-500 text-white space-y-3  py-4">
-                    <h1 className="text-3xl">From Data is hare</h1>
-                    {
-                        data &&
-                        <div>
-                            <h2>Sign Up Details:</h2>
-                            <p>Name: {data.name}</p>
-                            <p>Email: {data.email}</p>
-                            <p>Phone: {data.phone}</p>
-                            <p>Password: {data.password}</p>
-                        </div>
-                    }
-
-                </div>
-                <div className="text-xl w-full flex flex-col items-center justify-center font-bold text-center bg-green-500 text-white space-y-3  py-4">
-                    <h1 className="text-3xl">From Data is hare</h1>
-                    {
-                        data &&
-                        <div>
-                            <h2>Sign Up Details:</h2>
-                            <p>Name: {data.name}</p>
-                            <p>Email: {data.email}</p>
-                            <p>Phone: {data.phone}</p>
-                            <p>Password: {data.password}</p>
-                        </div>
-                    }
-
-                </div>
-            </div>
 
         </div>
     );

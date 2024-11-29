@@ -14,7 +14,7 @@ const Navber = () => {
         <Link className="text-2xl" >
           <CgProfile />
         </Link>
-        <Link to='/signin' className="py-2 px-3 text-white bg-green-500 rounded-lg  ">SignIn</Link>
+        <Link to='/signUp' className="py-2 px-3 text-white bg-green-500 rounded-lg  ">SignUp</Link>
       </div>
 
     </div>
