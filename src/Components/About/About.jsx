@@ -13,7 +13,7 @@ const About = () => {
                 }  </span>
             </p>
             <p>This is the about page. This is my Id, <span className="text-blue-500 font-bold text-xl"> {
-                 user?.uid
+                 user?.metadata.creationTime
                 }  </span>
             </p>
         </div>

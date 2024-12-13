@@ -2,17 +2,20 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/authProvider";
 
 const SignUp = () => {
-const {createUser} = useContext(AuthContext)
+
+    const { createUser } = useContext(AuthContext)
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-    const data = { name, email,password };
-    console.log(data);
-    createUser(email , password)
-
+        const data = { name, email, password };
+        console.log(data);
+        
+        createUser(email, password)
 
     };
 
@@ -34,7 +37,7 @@ const {createUser} = useContext(AuthContext)
                     className="w-full px-3 py-3 rounded-md bg-zinc-100 border text-black"
                     placeholder="Type Your Email"
                 />
-               
+
                 <input
                     name="password"
                     type="password"
