@@ -3,22 +3,28 @@ import { AuthContext } from "../../Provider/authProvider";
 
 const SignUp = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile, user } = useContext(AuthContext)
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        const data = { name, email, password };
-        console.log(data);
-        
         createUser(email, password)
+        
+        // Update profile Ar data send 
+            .then(() => {
+                updateUserProfile(name)
+                alert('User Created');
+            })
+            .catch((error) => {
+                console.error("Error creating user:", error);
+            });
 
     };
-
+    console.log(user);
     return (
         <div className="flex justify-center items-center  h-screen">
             <form className="w-full max-w-xl py-6 items-center justify-center flex flex-col pt-3 min-h-60 bg-pink-100 shadow-lg px-3 space-y-2"
@@ -43,6 +49,12 @@ const SignUp = () => {
                     type="password"
                     className="w-full px-3 py-3 rounded-md bg-zinc-100 border text-black"
                     placeholder="Type Your Password"
+                />
+                <input
+                    name="photo"
+                    type="file"
+                    className="w-full px-3 py-3 rounded-md bg-zinc-100 border text-black"
+                    placeholder="Type Your Photo"
                 />
                 <button
                     type="submit"

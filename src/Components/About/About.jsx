@@ -16,6 +16,14 @@ const About = () => {
                  user?.metadata.creationTime
                 }  </span>
             </p>
+            <p>This is the about page. This is my Name, <span className="text-blue-500 font-bold text-xl"> {
+                 user?.displayName
+                }  </span>
+            </p>
+            <p>This is the about page. This is my PhoneNumber, <span className="text-blue-500 font-bold text-xl"> {
+                 user?.phoneNumber
+                }  </span>
+            </p>
         </div>
     );
 };
